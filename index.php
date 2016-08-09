@@ -2,6 +2,7 @@
 
 	require 'lib/conexion.php';
 	require 'lib/insert.class.php';
+	require 'lib/update.class.php';
 
 	$con = new Conexion();
 
@@ -33,6 +34,14 @@
 
 	echo "<pre>";
 	echo var_dump( $sql_ins );
+	echo "</pre>";
+
+	$nuevo_upd = new Update( $table );
+	$nuevo_upd->setData( $input );
+	$sql_upd = $nuevo_upd->getUpdate();
+
+	echo "<pre>";
+	echo var_dump( $sql_upd );
 	echo "</pre>";
 
 ?>
